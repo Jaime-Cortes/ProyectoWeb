@@ -122,12 +122,11 @@ function validarOpc(){
 		alert('failure');
 		
 	}else if(opcion.value == 'otra'){
-		alert('wait');
 		document.getElementById(`otra`).style.display="";
-		
 	}else{
 		campos[escuela]=true;
-		alert('exito');
+		document.getElementById(`otra`).style.display="none";
+		// alert('exito');
 	}
 }
 

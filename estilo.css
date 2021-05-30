@@ -51,7 +51,7 @@ legend{
 	display:block;
 	font-weight: 700;
 	padding: 15px;
-	cursos: pointer;
+	cursor: pointer;
 }
 
 .form_input_otra{
@@ -99,7 +99,7 @@ legend{
 }
 
 .form_input_general_otra{
-	display:none;
+	margin: 0.5rem;
 }
 
 .form_input_general_otra_activa{
