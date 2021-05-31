@@ -12,9 +12,11 @@ const expresiones = {
 	cp: /^[0-9]{5}/, //longitud de 5 numeros
 	tel: /^55[0-9]{8}/, //longitud maxima de 8 digitos despues del 55
 	correo: /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
-	calle: /^[a-zA-Z0-9\s]+$/,
-	colonia: /^[a-zA-Z0-9\s]+$/, 
-	promedio: /^[0-9]+([.][0-9]{2})?$/
+	calle: /^[0-9a-zA-ZÀ-ÿ. ]+$/,
+	colonia: /^[0-9a-zA-ZÀ-ÿ. ]+$/, 
+	promedio: /^[0-9]+([.][0-9]{2})?$/,
+	otra: /^[0-9a-zA-ZÀ-ÿ. ]+$/,
+	fecha: /^\d{4}\-\d{2}\-\d{2}$/
 	
 }
 
@@ -26,17 +28,21 @@ const campos = {
 	apeP: false,
 	apeM: false,
 	boleta: false,
-	nacimiento: false,
+	nacimiento: true,
 	curp: false,
 	calle: false,
 	colonia: false,
 	cp: false,
 	telefono: false,
-	correo: false
+	correo: false,
+	otra: false,
+	promedio: false
 }
 
 const selectores = {
-	escuela: false
+	escuela: false,
+	estado: false,
+	escom: false
 }
 
 const ValidarForm = (e) => {
@@ -79,6 +85,12 @@ const ValidarForm = (e) => {
 			case "promedio":
 			ValidarCampos(expresiones.promedio, e.target, 'promedio');
 			break;
+		    case "fecha":
+			ValidarFecha(expresiones.fecha, e.target);
+			break;
+		    case "otra":
+			ValidarCampos(expresiones.otra, e.target,'otra');
+			break;
 			
 	}
 }
@@ -104,6 +116,14 @@ const ValidarCampos = (expresion, input, campo) => {
 			   }
 }
 
+var ValidarFecha = (expresion, input) => {
+	if(expresion.test(input.value)){
+		campos.nacimiento=true;
+	}else{
+		campos.nacimiento=false;
+	}
+}
+
 
 
 inputs.forEach((input) => {
@@ -116,19 +136,53 @@ inputs.forEach((input) => {
 });
 
 function validarOpc(){
-	var opcion = document.getElementById("escuela");
+	var opcion = document.getElementById('escuela');
 	if(opcion.value == 'NS'){
-		campos[escuela]=false;
-		alert('failure');
+		selectores.escuela=false;
+		
 		
 	}else if(opcion.value == 'otra'){
+		
 		document.getElementById(`otra`).style.display="";
+		selectores.escuela=false;
+		
+		
 	}else{
-		campos[escuela]=true;
-		document.getElementById(`otra`).style.display="none";
-		// alert('exito');
+	document.getElementById(`otra`).style.display="none";
+	document.getElementById(`form_otra`).classList.remove('form_incorrecto');
+	document.getElementById(`form_otra`).classList.remove('form_correcto');
+	document.querySelector(`#form_otra i`).classList.remove('fa-times-circle');
+	document.querySelector(`#form_otra i`).classList.remove('fa-check-circle');
+	document.querySelector(`#form_otra .form_error`).classList.remove('form_error_activo');
+	document.getElementById('form_mensaje').classList.remove('form_mensaje_activo');
+	selectores.escuela=true;
+	campos.otra=true;
+		
+		
 	}
 }
+
+function validarOpcE(){
+	var opcion = document.getElementById('procedencia');
+	if(opcion.value == 'NS'){
+		selectores.estado=false;
+	}else{
+	selectores.estado=true;
+	document.getElementById('form_mensaje').classList.remove('form_mensaje_activo');
+	}
+}
+
+
+function validarOpcO(){
+	var opcion = document.getElementById('opcionESCOM');
+	if(opcion.value == 'NS'){
+		selectores.escom=false;
+	}else{
+	selectores.escom=true;	
+	document.getElementById('form_mensaje').classList.remove('form_mensaje_activo');
+	}
+}
+
 
 formulario.addEventListener('reset', (e) =>{
 	
@@ -151,14 +205,29 @@ formulario.addEventListener('reset', (e) =>{
 
 formulario.addEventListener('submit',(e) =>{
 	e.preventDefault();
-	/*
-	const  genero = document.getElementById("genero");
-	*/
 	
-	if(campos.nombre && campos.apeP && campos.apeM && campos.boleta && campos.nacimiento && campos.curp && campos.calle && campos.colonia && campos.cp && campos.telefono && campos.correo && genero.checked){ //Falta campo otro
-	   alert("terminado");
+	//Validar campo de genero
+	var  sexo;
+		if(formulario.genero[0].checked == true || formulario.genero[1].checked == true ){
+			sexo = true;
+		}else{
+		sexo = false;
+	}
+	
+	
+	
+	if(/*campos.nombre && campos.apeP && campos.apeM && campos.boleta && campos.curp && campos.calle && campos.colonia && campos.cp && campos.telefono && campos.correo  && sexo == true && campos.nacimiento && campos.promedio && selectores.escuela && */campos.otra/* && selectores.estado && selectores.escom*/){ 
+	     alert("terminado");
+		document.getElementById('form_mensaje').classList.remove('form_mensaje_activo');
+		
 	   }else{
 		  document.getElementById('form_mensaje').classList.add('form_mensaje_activo');
 	   }
 	
 });
+
+
+
+
+
+

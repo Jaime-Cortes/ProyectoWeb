@@ -51,11 +51,11 @@ legend{
 	display:block;
 	font-weight: 700;
 	padding: 15px;
-	cursor: pointer;
+	cursos: pointer;
 }
 
 .form_input_otra{
-	width: 80%;
+	width: 100%;
 	background: #FFFFFF;
 	border: 5px solid transparent;
 	border-radius: 5px;
