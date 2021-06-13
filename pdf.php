@@ -17,7 +17,7 @@
     $colonia = "Colonia";
     $cp = "C.P";
     $tel = "55-55-55-55-55";
-    $email = "algo@algo.com";
+    $email = "example@example.com";
     //Procedencia
     $procedencia = "Escuela de procedencia";
     $entidad = "Entidad federativa";
@@ -152,7 +152,54 @@
     $pdf->SetFont('Arial','',12);
     $pdf->Cell(0,10,utf8_decode("$laboratorio"));
     $pdf->Ln(10);
-
-
     $pdf->Output();
+
+
+    //Enviando correo----------------------------------------------------------------
+    //Datos
+    $from = "Equipo4.Escom@gmail.com"; 
+    $subject = "Comprobante de registro"; 
+   $message = "<p>Alumno $nombre: Ha recibido su comprobante de registro.</p>";
+    $filename = "Comprobante.pdf"; // Nombre del documento
+    
+    $separator = md5(time()); //Hash para enviar el documento
+    $eol = PHP_EOL; //Simbolo fin de linea
+    
+    //Se codifica el documento
+    $pdfdoc = $pdf->Output("", "S");
+    $attachment = chunk_split(base64_encode($pdfdoc));
+    
+    //Se crea el encabezado
+    $headers  = "From: ".$from.$eol;
+    $headers .= "MIME-Version: 1.0".$eol; 
+    $headers .= "Content-Type: multipart/mixed; boundary=\"".$separator."\"";
+    
+    //Cuerpo del mensaje
+    $body = "--".$separator.$eol;
+    $body .= "Content-Transfer-Encoding: 7bit".$eol.$eol;
+    $body .= "Alumno $nombre: Ha recibido su comprobante de registro.\nFavor de no perderlo. Gracias!".$eol;
+    
+    //Metadatos del mensaje
+    $body .= "--".$separator.$eol;
+    $body .= "Content-Type: text/html; charset=\"iso-8859-1\"".$eol;
+    $body .= "Content-Transfer-Encoding: 8bit".$eol.$eol;
+    $body .= $message.$eol;
+    
+    //Se adjunta el documento
+    $body .= "--".$separator.$eol;
+    $body .= "Content-Type: application/octet-stream; name=\"".$filename."\"".$eol; 
+    $body .= "Content-Transfer-Encoding: base64".$eol;
+    $body .= "Content-Disposition: attachment".$eol.$eol;
+    $body .= $attachment.$eol;
+    $body .= "--".$separator."--";
+    
+    //Se envia el mensaje
+    $mail = mail($email, $subject, $body, $headers);
+
+    // if($mail){
+    //     echo "correo enviado";  
+    // }else{
+    //     echo "Error al enviar correo";    
+    // }
+
 ?>
