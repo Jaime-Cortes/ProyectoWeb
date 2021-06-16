@@ -1,32 +1,35 @@
 <?php
     //Configurando pdf
     require('libs\fpdf.php');
-    
-
+    include('Conexion.php');
     //Se obtienen los datos de la base de datos
-    //Identidad
-    $nombre = "Nombre";
-    $paterno = "ApellidoPaterno";
-    $materno = "ApellidoMaterno";
-    $boleta = "0123456789";
-    $nacimiento = "01/01/2000";
-    $genero = "Masculino";
-    $curp = "AAAA001122BBBCCCA0";
-    //Contacto
-    $calle = "Calle y numero";
-    $colonia = "Colonia";
-    $cp = "C.P";
-    $tel = "55-55-55-55-55";
-    $email = "example@example.com";
-    //Procedencia
-    $procedencia = "Escuela de procedencia";
-    $entidad = "Entidad federativa";
-    $promedio = "10.00";
-    $opcion = "Primera opción";
-    //Horario
-    $fechaAplicacion = "02/02/2021";
-    $hora = "13:50";
-    $laboratorio = "16"; 
+    $boleta = $_GET["boleta"];
+    $conexion = new Conexion;
+    $alumno = new Alumno();
+    $alumno = $conexion->consultarAlumno($boleta);
+    // //Identidad
+    // $nombre = "Nombre";
+    // $paterno = "ApellidoPaterno";
+    // $materno = "ApellidoMaterno";
+    // $boleta = "0123456789";
+    // $nacimiento = "01/01/2000";
+    // $genero = "Masculino";
+    // $curp = "AAAA001122BBBCCCA0";
+    // //Contacto
+    // $calle = "Calle y numero";
+    // $colonia = "Colonia";
+    // $cp = "C.P";
+    // $tel = "55-55-55-55-55";
+    // $email = "example@example.com";
+    // //Procedencia
+    // $procedencia = "Escuela de procedencia";
+    // $entidad = "Entidad federativa";
+    // $promedio = "10.00";
+    // $opcion = "Primera opción";
+    // //Horario
+    // $fechaAplicacion = "02/02/2021";
+    // $hora = "13:50";
+    // $laboratorio = "16"; 
 
 
     //Se crea el pdf
@@ -55,27 +58,27 @@
     $pdf->SetFont('Arial','B',12);
     $pdf->Cell(45,10,utf8_decode("Nombre del Alumno:"));
     $pdf->SetFont('Arial','',12);
-    $pdf->Cell(0,10,utf8_decode("$paterno $materno $nombre"));
+    $pdf->Cell(0,10,utf8_decode("$alumno->paterno $alumno->materno $alumno->nombre"));
     $pdf->Ln(10);
     $pdf->SetFont('Arial','B',12);
     $pdf->Cell(16,10,utf8_decode("Boleta:"));
     $pdf->SetFont('Arial','',12);
-    $pdf->Cell(0,10,utf8_decode("$boleta"));
+    $pdf->Cell(0,10,utf8_decode("$alumno->boleta"));
     $pdf->Ln(10);
     $pdf->SetFont('Arial','B',12);
     $pdf->Cell(45,10,utf8_decode("Fecha de nacimiento:"));
     $pdf->SetFont('Arial','',12);
-    $pdf->Cell(0,10,utf8_decode("$nacimiento"));
+    $pdf->Cell(0,10,utf8_decode("$alumno->nacimiento"));
     $pdf->Ln(10);
     $pdf->SetFont('Arial','B',12);
     $pdf->Cell(18,10,utf8_decode("Género:"));
     $pdf->SetFont('Arial','',12);
-    $pdf->Cell(0,10,utf8_decode("$genero"));
+    $pdf->Cell(0,10,utf8_decode("$alumno->genero"));
     $pdf->Ln(10);
     $pdf->SetFont('Arial','B',12);
     $pdf->Cell(15,10,utf8_decode("CURP:"));
     $pdf->SetFont('Arial','',12);
-    $pdf->Cell(0,10,utf8_decode("$curp"));
+    $pdf->Cell(0,10,utf8_decode("$alumno->curp"));
     $pdf->Ln(15);
     //Seccion Contacto
     $pdf->SetFont('Arial','B',12);
@@ -87,17 +90,17 @@
     $pdf->SetFont('Arial','B',12);
     $pdf->Cell(22,10,utf8_decode("Direccion:"));
     $pdf->SetFont('Arial','',12);
-    $pdf->Cell(0,10,utf8_decode("Calle $calle Col. $colonia CP. $cp"));
+    $pdf->Cell(0,10,utf8_decode("Calle $alumno->calle Col. $alumno->colonia CP. $alumno->cp"));
     $pdf->Ln(10);
     $pdf->SetFont('Arial','B',12);
     $pdf->Cell(20,10,utf8_decode("Teléfono:"));
     $pdf->SetFont('Arial','',12);
-    $pdf->Cell(0,10,utf8_decode("$tel"));
+    $pdf->Cell(0,10,utf8_decode("$alumno->tel"));
     $pdf->Ln(10);
     $pdf->SetFont('Arial','B',12);
     $pdf->Cell(40,10,utf8_decode("Correo electrónico:"));
     $pdf->SetFont('Arial','',12);
-    $pdf->Cell(0,10,utf8_decode("$email"));
+    $pdf->Cell(0,10,utf8_decode("$alumno->email"));
     $pdf->Ln(15);
     //Seccion Procedencia
     $pdf->SetFont('Arial','B',12);
@@ -109,22 +112,22 @@
     $pdf->SetFont('Arial','B',12);
     $pdf->Cell(52,10,utf8_decode("Escuela de procedencia:"));
     $pdf->SetFont('Arial','',12);
-    $pdf->Cell(0,10,utf8_decode("$procedencia"));
+    $pdf->Cell(0,10,utf8_decode("$alumno->procedencia"));
     $pdf->Ln(10);
     $pdf->SetFont('Arial','B',12);
     $pdf->Cell(40,10,utf8_decode("Entidad federativa:"));
     $pdf->SetFont('Arial','',12);
-    $pdf->Cell(0,10,utf8_decode("$entidad"));
+    $pdf->Cell(0,10,utf8_decode("$alumno->estado"));
     $pdf->Ln(10);
     $pdf->SetFont('Arial','B',12);
     $pdf->Cell(38,10,utf8_decode("Promedio escolar:"));
     $pdf->SetFont('Arial','',12);
-    $pdf->Cell(0,10,utf8_decode("$promedio"));
+    $pdf->Cell(0,10,utf8_decode("$alumno->promedio"));
     $pdf->Ln(10);
     $pdf->SetFont('Arial','B',12);
     $pdf->Cell(18,10,utf8_decode("Opción:"));
     $pdf->SetFont('Arial','',12);
-    $pdf->Cell(0,10,utf8_decode("Escom corresponde a la $opcion"));
+    $pdf->Cell(0,10,utf8_decode("Escom corresponde a la $alumno->opcion"));
     $pdf->Ln(15);
     //Seccion Horario
     $pdf->SetFont('Arial','B',12);
@@ -140,17 +143,17 @@
     $pdf->Cell(20,10,"");
     $pdf->Cell(45,10,utf8_decode("Fecha de aplicación:"));
     $pdf->SetFont('Arial','',12);
-    $pdf->Cell(60,10,utf8_decode("$fechaAplicacion"));
+    $pdf->Cell(60,10,utf8_decode("$alumno->fechaAplicacion"));
     $pdf->SetFont('Arial','B',12);
     $pdf->Cell(14,10,utf8_decode("Hora:"));
     $pdf->SetFont('Arial','',12);
-    $pdf->Cell(0,10,utf8_decode("$hora"));
+    $pdf->Cell(0,10,utf8_decode("$alumno->hora"));
     $pdf->Ln(10);
     $pdf->SetFont('Arial','B',12);
     $pdf->Cell(20,10,"");  
     $pdf->Cell(28,10,utf8_decode("Laboratorio:"));
     $pdf->SetFont('Arial','',12);
-    $pdf->Cell(0,10,utf8_decode("$laboratorio"));
+    $pdf->Cell(0,10,utf8_decode("$alumno->laboratorio"));
     $pdf->Ln(10);
     $pdf->Output();
 
@@ -159,7 +162,7 @@
     //Datos
     $from = "Equipo4.Escom@gmail.com"; 
     $subject = "Comprobante de registro"; 
-   $message = "<p>Alumno $nombre: Ha recibido su comprobante de registro.</p>";
+   $message = "<p>Alumno $alumno->nombre: Ha recibido su comprobante de registro.</p>";
     $filename = "Comprobante.pdf"; // Nombre del documento
     
     $separator = md5(time()); //Hash para enviar el documento
@@ -177,7 +180,7 @@
     //Cuerpo del mensaje
     $body = "--".$separator.$eol;
     $body .= "Content-Transfer-Encoding: 7bit".$eol.$eol;
-    $body .= "Alumno $nombre: Ha recibido su comprobante de registro.\nFavor de no perderlo. Gracias!".$eol;
+    $body .= "Alumno $alumno->nombre: Ha recibido su comprobante de registro.\nFavor de no perderlo. Gracias!".$eol;
     
     //Metadatos del mensaje
     $body .= "--".$separator.$eol;
@@ -194,7 +197,7 @@
     $body .= "--".$separator."--";
     
     //Se envia el mensaje
-    $mail = mail($email, $subject, $body, $headers);
+    $mail = mail($alumno->email, $subject, $body, $headers);
 
     // if($mail){
     //     echo "correo enviado";  

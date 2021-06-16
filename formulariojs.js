@@ -139,14 +139,10 @@ function validarOpc(){
 	var opcion = document.getElementById('escuela');
 	if(opcion.value == 'NS'){
 		selectores.escuela=false;
-		
-		
-	}else if(opcion.value == 'otra'){
+	}else if(opcion.value == '0'){
 		
 		document.getElementById(`otra`).style.display="";
 		selectores.escuela=false;
-		
-		
 	}else{
 	document.getElementById(`otra`).style.display="none";
 	document.getElementById(`form_otra`).classList.remove('form_incorrecto');
@@ -217,13 +213,14 @@ formulario.addEventListener('submit',(e) =>{
 	
 	
 	if(/*campos.nombre && campos.apeP && campos.apeM && campos.boleta && campos.curp && campos.calle && campos.colonia && campos.cp && campos.telefono && campos.correo  && sexo == true && campos.nacimiento && campos.promedio && selectores.escuela && */campos.otra/* && selectores.estado && selectores.escom*/){ 
-	     alert("terminado");
+	    alert("terminado");
 		document.getElementById('form_mensaje').classList.remove('form_mensaje_activo');
-		
+		e.currentTarget.submit();
 	   }else{
 		  document.getElementById('form_mensaje').classList.add('form_mensaje_activo');
 	   }
-	
+
+
 });
 
 
