@@ -23,6 +23,6 @@
         //Horario
         public $fechaAplicacion;
         public $hora;
-        public $laboratorio;    
+        public $laboratorio;
     }
 ?>

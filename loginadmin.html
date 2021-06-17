@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+	<title>Registrar usuario</title>
+	<meta charset="utf-8">
+<link href="formatocss/loginformato.css" rel="stylesheet" type="text/css">
+<script>
+	function funcionAsociadaBoton(){
+		history.go(-1);
+} </script>
+</head>
+<body>
+	<section class="form-login">
+		<form action="validaradmin.php" method="post">
+			<h5>INICIAR SESION</h5>
+			<input class="controls" type="text" name="email" placeholder="Correo">
+			<input class="controls" type="password" name="password" placeholder="Password">
+			<input class="buttons" type="submit" name="Ingresar">
+		</form>
+	</section>
+	
+	<input type="button" value="Mi botón" onClick="funcionAsociadaBoton()">
+</body>
+</html>

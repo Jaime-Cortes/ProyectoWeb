@@ -1,5 +1,6 @@
 @charset "utf-8";
 /* CSS Document */
+
 * {
 	box-sizing: border-box;
 }
@@ -216,6 +217,7 @@ legend{
 .form_incorrecto .form_input{
 	border: 3px solid #F04646;
 }
+
 
 @media screen and (max-width: 800px){
 	.formulario{
