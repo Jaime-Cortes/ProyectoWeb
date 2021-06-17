@@ -7,8 +7,8 @@
 	<h3>Recibir datos del formulario</h3>
 	<p>
 		
-		<form  method="post">
-			<input type="submit" value="Aceptar" name="ok" >
+		<form  method="POST" action="registrarAlumno.php">
+			<input type="submit" value="Aceptar" name="Aceptar" >
 
 			<input type="submit" value="Reset">
 		</form>

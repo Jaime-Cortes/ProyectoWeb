@@ -3,10 +3,7 @@
 <head>
 <meta charset="utf-8">
 <title>.:Registro de alumnos:.</title>
-	<style type="text/css">
-		 @import url(estilo.css);
-		
-	</style>
+<link rel="stylesheet" href="formatocss/estilo.css">
 	<script language="JavaScript">
 function pregunta(){
     if (confirm('¿Estas seguro de enviar este formulario?')){
@@ -17,14 +14,12 @@ function pregunta(){
 	
 </head>
 	<body>
-
-		
 			<img class="icono" src="escom.png" width="10%" height="auto" align="right" />
-			<img src="ipn.PNG"  width="7%" height="auto" align="left"/>
+			<img src="res/ipnTransparent.png"  width="7%" height="auto" align="left" class="logoIPN"/>
 	<h2>REGISTRO DE DATOS GENERALES PARA ALUMNOS DE NUEVO INGRESO (AGOSTO 2021)</h2>
 			<p><br/><h4>Bienvenido(a) a la Escuela Superior de Cómputo (<b>ESCOM</b>), a continuación llena el siguiente formulario para asignarte el salón y horario en el que realizarás tu examen y poder formar parte de la <b>ESCOMUNIDAD</b>. </h4></p>
 
-			<form action="confimationphp.php" method="POST" class="formulario" id="formulario"> <!-- Cambiar direccion destino -->
+			<form action="registrarAlumno.php" method="POST" class="formulario" id="formulario"> <!-- Cambiar direccion destino -->
 		<div class="form_Identidad">
 			<fieldset>
 			<legend><h3>Identidad</h3></legend>
@@ -76,8 +71,8 @@ function pregunta(){
 
 			<div class="form_All" id="form_genero">
 			<label for="genero" class="etiqueta"> G&eacute;nero:  <br/></label>
-			<input type="radio" class="form_radio" name="genero" id="M" value="M">Masculino
-			<input type="radio" class="form_radio" name="genero" id="F" value="F">Femenino<br/>
+			<input type="radio" class="form_radio" name="genero" id="M" value="M"><label for="M">Masculino</label>
+			<input type="radio" class="form_radio" name="genero" id="F" value="F"><label for="F">Femenino</label><br/>
 			</div>	
 
 			<div class="form_ALL" id="form_curp">
@@ -239,8 +234,6 @@ function pregunta(){
 				<option value="Tercera">Tercera opci&oacute;n</option>
 				<option value="Cuarta">Cuarta opci&oacute;n</option>
 			</select>
-
-
 
 			</fieldset>
 

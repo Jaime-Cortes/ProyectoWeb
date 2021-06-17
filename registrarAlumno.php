@@ -1,6 +1,14 @@
 <?php
 	include("Conexion.php");
-    $alumno = new Alumno;
+	if (isset($_POST['Aceptar'])){
+		session_start();
+		$conexion = new Conexion;
+		$alumno = $_SESSION["alumno"];
+		$conexion->registrarAlumno($alumno);
+		echo "alumno registrado";
+		header("location:pdf.php?boleta=$alumno->boleta");
+  	}else{
+	$alumno = new Alumno;
     $alumno->nombre = $_POST["nombre"];
     $alumno->paterno = $_POST["apeP"];
     $alumno->materno = $_POST["apeM"];
@@ -21,6 +29,9 @@
     $alumno->opcion = $_POST["opcionESCOM"];
     $alumno->otra = $_POST["otra"];
 
+	session_start();
+	$_SESSION["alumno"]=$alumno;
+
 	    echo "<br> Hola $alumno->nombre, verifica que los datos que ingresaste sean correctos:<br>
 			Nombre(s) : $alumno->nombre, <br/>
 			Apellido Paterno  : $alumno->paterno<br/>
@@ -39,9 +50,10 @@
 			Promedio escolar en la medio superior : $alumno->promedio</br>
 			ESCOM fue tu : $alumno->opcion opcion<br/>";
 
-	if (isset($_POST['ok'])){
-		$conexion = new Conexion;
-		$conexion->registrarAlumno($alumno);
-  	}
+		echo"<form  method='POST' action='registrarAlumno.php'>
+		<input type='submit' value='Aceptar' name='Aceptar' >
+		<input type='submit' value='Reset'>
+		</form>";
+	  }
 
 ?>
