@@ -223,6 +223,15 @@ insert into Estados (idEstado, estado) values (30, 'Veracruz');
 insert into Estados (idEstado, estado) values (31, 'Yucatan');
 insert into Estados (idEstado, estado) values (32, 'Zacatecas');
 
+drop table if exists `admin`;
+CREATE TABLE `admin`(
+  `usuario` varchar(100) NOT NULL,
+  `clave` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+INSERT INTO `admin` (`usuario`, `clave`) VALUES ('Equipo4.Escom@gmail.com', '3$com123');
+
+
 /*
 delimiter **    
 drop procedure if exists registrosPrueba;

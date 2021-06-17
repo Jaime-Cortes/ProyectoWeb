@@ -3,7 +3,7 @@
     class Conexion {
         public $url = "localhost";
         public $user = "root";
-        public $psw = "";
+        public $psw = "n0m3l0";
         public $bd = "Tec_web";
         public $port = 3306;
         public $mysqli;
@@ -91,6 +91,13 @@
                 }
             }
             return $Alumnos;
+        }
+
+        public function validarAdmin($usuario, $contrasena){
+            $consulta = "SELECT * FROM ADMIN WHERE usuario = '$usuario' and clave = '$contrasena'";
+            $resul = $this->mysqli->query($consulta);
+		    $filas = mysqli_num_rows($resul);
+            return $filas;
         }
     }
 ?>

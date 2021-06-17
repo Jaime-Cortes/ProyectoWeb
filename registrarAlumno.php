@@ -39,8 +39,6 @@
 			Promedio escolar en la medio superior : $alumno->promedio</br>
 			ESCOM fue tu : $alumno->opcion opcion<br/>";
 
-
-
 	if (isset($_POST['ok'])){
 		$conexion = new Conexion;
 		$conexion->registrarAlumno($alumno);

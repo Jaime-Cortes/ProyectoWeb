@@ -7,31 +7,7 @@
     $conexion = new Conexion;
     $alumno = new Alumno();
     $alumno = $conexion->consultarAlumno($boleta);
-    // //Identidad
-    // $nombre = "Nombre";
-    // $paterno = "ApellidoPaterno";
-    // $materno = "ApellidoMaterno";
-    // $boleta = "0123456789";
-    // $nacimiento = "01/01/2000";
-    // $genero = "Masculino";
-    // $curp = "AAAA001122BBBCCCA0";
-    // //Contacto
-    // $calle = "Calle y numero";
-    // $colonia = "Colonia";
-    // $cp = "C.P";
-    // $tel = "55-55-55-55-55";
-    // $email = "example@example.com";
-    // //Procedencia
-    // $procedencia = "Escuela de procedencia";
-    // $entidad = "Entidad federativa";
-    // $promedio = "10.00";
-    // $opcion = "Primera opción";
-    // //Horario
-    // $fechaAplicacion = "02/02/2021";
-    // $hora = "13:50";
-    // $laboratorio = "16"; 
-
-
+ 
     //Se crea el pdf
     class PDF extends FPDF{
         // Cabecera de página
