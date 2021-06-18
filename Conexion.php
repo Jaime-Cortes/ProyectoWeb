@@ -3,7 +3,7 @@
     class Conexion {
         public $url = "localhost";
         public $user = "root";
-        public $psw = "n0m3l0";
+        public $psw = "";
         public $bd = "Tec_web";
         public $port = 3306;
         public $mysqli;

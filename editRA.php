@@ -52,7 +52,7 @@ function pregunta(){
 			<div class='form_All' id='form_apeP'>
 			<label for='apeP' class='etiqueta'> Apellido paterno: </label>
 					<div class='form_input_general'>
-					<input type='text' name='apeP' id='apeP' class='form_input' maxlength='15'>
+					<input type='text' name='apeP' id='apeP' class='form_input' maxlength='15'value='$alumno->paterno'>
 					<i class='validacion_estado far fa-times-circle'></i>
 					</div>
 					<p class='form_error'>El apellido no puede contener s&iacute;mbolos o n&uacute;meros </p>
@@ -62,7 +62,7 @@ function pregunta(){
 			<div class='form_All' id='form_apeM'>
 			<label for='apeM' class='etiqueta'> Apellido materno: </label>
 					<div class='form_input_general'>
-					<input type='text' name='apeM' id='apeM' class='form_input' maxlength='15'>
+					<input type='text' name='apeM' id='apeM' class='form_input' maxlength='15' value='$alumno->materno'>
 					<i class='validacion_estado far fa-times-circle'></i>
 					</div>
 					<p class='form_error'>El apellido no puede contener s&iacute;mbolos o n&uacute;meros </p>
@@ -72,7 +72,7 @@ function pregunta(){
 			<div class='form_All' id='form_boleta'>
 			<label for='boleta' class='etiqueta'> N&uacute;mero de boleta: </label>
 					<div class='form_input_general'>
-					<input type='text' name='boleta' id='boleta' class='form_input' maxlength='10'>
+					<input type='text' name='boleta' id='boleta' class='form_input' maxlength='10' value='$alumno->boleta'>
 					<i class='validacion_estado far fa-times-circle'></i>
 					</div>
 					<p class='form_error'>El n&uacute;mero de boleta debe empezar con PP o PE y debe tener 8 d&iacute;gitos depu&eacute;s</p>
@@ -81,20 +81,20 @@ function pregunta(){
 
 			<div class='form_ALL' id='form_fecha'>
 			<label for='nacimiento' class='etiqueta'> Fecha de nacimiento:  <br></label>
-		  <input type='date' name='fecha' id='fecha'  class='form_fecha' min='1930-12-31' max='2005-12-31'><br/>
+		  <input type='date' name='fecha' id='fecha'  class='form_fecha' min='1930-12-31' max='2005-12-31' value='$alumno->nacimiento'><br/>
 				</div>
 
 
 			<div class='form_All' id='form_genero'>
 			<label for='genero' class='etiqueta'> G&eacute;nero:  <br/></label>
-			<input type='radio' class='form_radio' name='genero' id='M' value='M'>Masculino
-			<input type='radio' class='form_radio' name='genero' id='F' value='F'>Femenino<br/>
+			<input type='radio' class='form_radio' name='genero' id='M'  value='$alumno->genero'>Masculino
+			<input type='radio' class='form_radio' name='genero' id='F'  value='$alumno->genero'>Femenino<br/>
 			</div>	
 
 			<div class='form_ALL' id='form_curp'>
 			<label for='curp' class='etiqueta'> CURP: </label>
 					<div class='form_input_general'>
-					<input type='text' name='curp' id='curp' class='form_input' maxlength='18'>
+					<input type='text' name='curp' id='curp' class='form_input' maxlength='18' value='$alumno->curp'>
 					<i class=' validacion_estado far fa-times-circle'></i>
 					</div>
 					<p class='form_error'>El CURP debe tener 18 caracteres</p>
@@ -110,7 +110,7 @@ function pregunta(){
 			<div class='form_All' id='form_calle'>
 			<label for='calle' class='etiqueta'> Calle y n&uacute;mero: </label>
 					<div class='form_input_general'>
-					<input type='text' name='calle' id='calle' class='form_input' maxlength='50'>
+					<input type='text' name='calle' id='calle' class='form_input' maxlength='50' value='$alumno->calle'>
 					<i class='validacion_estado far fa-times-circle'></i>
 					</div>
 					<p class='form_error'>La calle no puede contener s&iacute;mbolos </p>
@@ -120,7 +120,7 @@ function pregunta(){
 			<div class='form_All' id='form_colonia'>
 			<label for='colonia' class='etiqueta'> Colonia: </label>
 					<div class='form_input_general'>
-					<input type='text' name='colonia' id='colonia' class='form_input' maxlength='70'>
+					<input type='text' name='colonia' id='colonia' class='form_input' maxlength='70' value='$alumno->colonia'>
 					<i class='validacion_estado far fa-times-circle'></i>
 					</div>
 					<p class='form_error'>La colonia no puede contener s&iacute;mbolos </p>
@@ -130,7 +130,7 @@ function pregunta(){
 				<div class='form_All' id='form_cp'>
 			<label for='cp' class='etiqueta'> C&oacute;digo postal:</label>
 					<div class='form_input_general'>
-					<input type='text' name='cp' id='cp' class='form_input' maxlength='5'>
+					<input type='text' name='cp' id='cp' class='form_input' maxlength='5' value='$alumno->cp'>
 					<i class='validacion_estado far fa-times-circle'></i>
 					</div>
 					<p class='form_error'>Este campo solo puede tener n&uacute;meros (m&aacute;ximo cinco) </p>
@@ -139,7 +139,7 @@ function pregunta(){
 			<div class='form_All' id='form_telefono'>
 			<label for='telefono' class='etiqueta'> Tel&eacute;fono:</label>
 					<div class='form_input_general'>
-					<input type='tel' name='telefono' id='telefono' class='form_input' maxlength='10'>
+					<input type='tel' name='telefono' id='telefono' class='form_input' maxlength='10' value='$alumno->tel'>
 					<i class='validacion_estado far fa-times-circle'></i>
 					</div>
 					<p class='form_error'>El tel&eacute;fono debe tener 10 d&iacute;gitos y empezar con 55 </p>
@@ -148,7 +148,7 @@ function pregunta(){
 			<div class='form_All' id='form_correo'>
 			<label for='correo' class='etiqueta'> Correo electr&oacute;nico:</label>
 					<div class='form_input_general'>
-					<input type='email' name='correo' id='correo' class='form_input' maxlength='30'>
+					<input type='email' name='correo' id='correo' class='form_input' maxlength='30' value='$alumno->email'>
 					<i class='validacion_estado far fa-times-circle'></i>
 					</div>
 					<p class='form_error'>El correo debe tener un dominio </p>
@@ -162,7 +162,7 @@ function pregunta(){
 			<fieldset>
 			<legend><h3>Procedencia</h3></legend>
 			<label for='escuela' class='etiqueta'> Selecciona tu escuela de procedencia</label>
-			<select name='escuela' id='escuela' onChange='validarOpc()'>
+			<select name='escuela' id='escuela' onChange='validarOpc()' value='$alumno->procedencia'>
 				<option value='NS' > Selecciona una</option>
 				<option value='1'> CECyT 1 &quot;Gonzalo V&aacute;zquez Vela&quot;</option>
 				<option value='2'> CECyT 2 &quot;Miguel Bernard Perales&quot;</option>
@@ -188,7 +188,7 @@ function pregunta(){
 				<div class='form_All' id='form_otra'>
 			<!--<label for='otra' class='etiqueta'> Promedio:</label>-->
 				<div class='form_input_general_otra'>
-					<input type='text' name='otra' id='otra'  class='form_input_otra' placeholder='Otra' style='display: none;'/>
+					<input type='text' name='otra' id='otra'  class='form_input_otra' placeholder='Otra' style='display: none;' value='$alumno->otra'/>
 					<i class='validacion_estado far fa-times-circle'></i>
 					</div>
 					<p class='form_error'>La escuela no debe tener caracteres especiales </p>
@@ -196,7 +196,7 @@ function pregunta(){
 
 
 			<label for='estado' class='etiqueta'>Selecciona tu entidad federativa de procedencia</label>
-			<select name='estado' id='procedencia' onChange='validarOpcE()'>
+			<select name='estado' id='procedencia' onChange='validarOpcE()' value='$alumno->estado'>
 				<option value='NS'> Selecciona una </option>
 				<option value='1'> Aguascalientes </option>
 				<option value='2'> Baja California</option>
@@ -235,7 +235,7 @@ function pregunta(){
 			<div class='form_All' id='form_promedio'>
 			<label for='promedio' class='etiqueta'> Promedio:</label>
 					<div class='form_input_general'>
-					<input type='text' name='promedio' id='promedio' class='form_input_prom'>
+					<input type='text' name='promedio' id='promedio' class='form_input_prom' value='$alumno->promedio'>
 					<i class='validacion_estado_prom far fa-times-circle'></i>
 					</div>
 					<p class='form_error'>El promedio debe tener dos decimales </p>
@@ -243,7 +243,7 @@ function pregunta(){
 
 
 			<label for='opcionEscom' class='etiqueta'>ESCOM fue tu:</label>
-			<select name='opcionESCOM' id='opcionESCOM'  onChange='validarOpcO()' >
+			<select name='opcionESCOM' id='opcionESCOM'  onChange='validarOpcO()' value='$alumno->opcion' >
 				<option value='NS'> Selecciona una </option>
 				<option value='Primer'>Primera opci&oacute;n</option>
 				<option value='Segunda'>Segunda opci&oacute;n</option>

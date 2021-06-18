@@ -31,8 +31,12 @@
 
 	session_start();
 	$_SESSION["alumno"]=$alumno;
-
-	    echo "<br> Hola $alumno->nombre, verifica que los datos que ingresaste sean correctos:<br>
+	echo "<style type='text/css'>";
+		 echo "@import url('formatocss/resultado.css');";
+	echo"</style>";
+		
+		echo"<div id='informacion'>";
+	    echo "<br><p class='title'>Hola $alumno->nombre, verifica que los datos que ingresaste sean correctos:</p><br>
 			Nombre(s) : $alumno->nombre, <br/>
 			Apellido Paterno  : $alumno->paterno<br/>
 			Apellido Materno : $alumno->materno<br/>
@@ -49,6 +53,7 @@
 			Estado de procedencia : $alumno->estado<br/>
 			Promedio escolar en la medio superior : $alumno->promedio</br>
 			ESCOM fue tu : $alumno->opcion opcion<br/>";
+		echo"</div>";
 
 		echo"<form  method='POST' action='registrarAlumno.php'>
 		<input type='submit' value='Aceptar' name='Aceptar' >

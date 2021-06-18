@@ -1,0 +1,18 @@
+@charset "utf-8";
+/* CSS Document */
+*{
+	font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", Verdana, "sans-serif";
+}
+
+#informacion {
+	width: 70%;
+	text-align: justify;
+	padding:  0 15%;
+}
+
+.title {
+	font-size: 18px;
+	font-weight: bold;
+}
+
+
