@@ -1,8 +1,15 @@
 <?php
 	include("Conexion.php");
-	$boleta = $_GET["boleta"];
-	$conexion = new Conexion;
-	$alumno = $conexion->consultarAlumno($boleta);
+	$alumno;
+
+	if(isset($_GET['Admin'])){
+		$boleta = $_GET["boleta"];
+		$conexion = new Conexion;
+		$alumno = $conexion->consultarAlumno($boleta);
+	}else{
+		session_start();
+		$alumno = $_SESSION["alumno"];
+	}
 
 echo "
 <!doctype html>
@@ -10,10 +17,7 @@ echo "
 <head>
 <meta charset='utf-8'>
 <title>.:Registro de alumnos:.</title>
-	<style type='text/css'>
-		 @import url(estilo.css);
-		
-	</style>
+	<link rel='stylesheet' href='formatocss/estilo.css'>
 	<script language='JavaScript'>
 function pregunta(){
     if (confirm('¿Estas seguro de enviar este formulario?')){
@@ -27,7 +31,7 @@ function pregunta(){
 
 		
 			<img class='icono' src='escom.png' width='10%' height='auto' align='right' />
-			<img src='ipn.PNG'  width='7%' height='auto' align='left'/>
+			<img src='res/ipnTransparent.png'  width='7%' height='auto' align='left'/>
 	<h2>REGISTRO DE DATOS GENERALES PARA ALUMNOS DE NUEVO INGRESO (AGOSTO 2021)</h2>
 			<p><br/><h4>Bienvenido(a) a la Escuela Superior de Cómputo (<b>ESCOM</b>), a continuación llena el siguiente formulario para asignarte el salón y horario en el que realizarás tu examen y poder formar parte de la <b>ESCOMUNIDAD</b>. </h4></p>
 
@@ -257,7 +261,7 @@ function pregunta(){
 				</p></div>
 			</div>
 		   <div class='form_All_enviar'>
-			<input type='submit' class='formulario_btnE'  onclick='pregunta()' value='Enviar'>
+			<input type='submit' class='formulario_btnE'  onclick='pregunta()' value='Guardar'>
 			   </div>
 
 			<div class='form_All_limpiar'>

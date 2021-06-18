@@ -52,7 +52,9 @@
 
 		echo"<form  method='POST' action='registrarAlumno.php'>
 		<input type='submit' value='Aceptar' name='Aceptar' >
-		<input type='submit' value='Reset'>
+		</form>
+		<form  method='get' action='editRA.php'>
+		<input type='submit' value='Editar'>
 		</form>";
 	  }
 

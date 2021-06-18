@@ -5,4 +5,5 @@
     $conexion = new Conexion;
     $alumno = new Alumno();
     $alumno = $conexion->eliminarAlumno($boleta);
+    header("location:menuAdmin.php");
 ?>
