@@ -29,6 +29,9 @@
     $alumno->opcion = $_POST["opcionESCOM"];
     $alumno->otra = $_POST["otra"];
 
+	$alumno->idEscuela =  $alumno->procedencia;
+	$alumno->idEstado = $alumno->estado;
+
 	session_start();
 	$_SESSION["alumno"]=$alumno;
 
@@ -41,7 +44,7 @@
 		
 		echo"<div id='informacion'>";
 	    echo "<br><p class='title'>Hola $alumno->nombre, verifica que los datos que ingresaste sean correctos:</p><br>
-			Nombre(s) : $alumno->nombre, <br/>
+			Nombre(s) : $alumno->nombre <br/>
 			Apellido Paterno  : $alumno->paterno<br/>
 			Apellido Materno : $alumno->materno<br/>
 			Boleta : $alumno->boleta<br/>

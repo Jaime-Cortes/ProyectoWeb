@@ -74,7 +74,7 @@ create table Alumno_Laboratorio(
 drop view if exists Datos;
 create view Datos as
 select  A.boleta, A.nombre, A.apellidoPat, A.apellidoMat, A.email, A.nacimiento, A.genero, A.curp, A.calle, A.colonia, A.cp, 
-		A.tel, A.promedio, A.opcionEscom, Esc.escuela, Est.estado, L.laboratorio, AL.hora, AL.fecha
+		A.tel, A.promedio, A.opcionEscom,Esc.idEscuela, Esc.escuela, Est.idEstado, Est.estado, L.laboratorio, AL.hora, AL.fecha
 	from alumnos as A 
 	inner join alumno_escuela as AE on A.boleta = AE.boleta
 	inner join alumno_estado as AES on A.boleta = AES.boleta
@@ -261,6 +261,9 @@ select distinct hora from Datos;
 select count(*) from datos;
 */
 
-
+select estado from Estados where idEstado = 1;
+select escuela from Escuelas where idEscuela = 1;
    
+   CALL ProcedureAlumno (1, 0, 'nombre', 'paterno', 'materno', 'email', '2020-08-2013', 'M', 'curp', 
+		'calle', 'colonia', 'cp', 'telefono', '10', 'primera', 9, '', 5);
     

@@ -24,4 +24,5 @@
 
     $conexion = new Conexion;
     $conexion->editarAlumno($alumno);
+    header("location:menuAdmin.php");
 ?>

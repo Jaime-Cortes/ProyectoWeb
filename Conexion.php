@@ -44,6 +44,8 @@
                     $alumno->laboratorio = $row['laboratorio'];
                     $alumno->hora = $row['hora'];
                     $alumno->fechaAplicacion = $row['fecha'];
+                    $alumno->idEstado = $row['idEstado'];
+                    $alumno->idEscuela = $row['idEscuela'];
                 }
             }
             return $alumno;

@@ -3,7 +3,12 @@
     require('libs\fpdf.php');
     include('Conexion.php');
     //Se obtienen los datos de la base de datos
-    $boleta = $_GET["boleta"];
+    $boleta="0";
+    if(isset($_POST['boleta'])){
+        $boleta = $_POST["boleta"];
+    }else{
+        $boleta = $_GET["boleta"];
+    }
     $conexion = new Conexion;
     $alumno = new Alumno();
     $alumno = $conexion->consultarAlumno($boleta);
@@ -12,7 +17,7 @@
     class PDF extends FPDF{
         // Cabecera de página
         function Header(){
-            $this->Image('res\IPN.png',10,8,33);
+            $this->Image('res\IPN.png',15,5,20,30);
             $this->Image('res\ESCOM.PNG',160,8,33);
             $this->SetFont('Arial','B',15);
             $this->Cell(80);
@@ -103,7 +108,7 @@
     $pdf->SetFont('Arial','B',12);
     $pdf->Cell(18,10,utf8_decode("Opción:"));
     $pdf->SetFont('Arial','',12);
-    $pdf->Cell(0,10,utf8_decode("Escom corresponde a la $alumno->opcion"));
+    $pdf->Cell(0,10,utf8_decode("Escom corresponde a la $alumno->opcion Opcion"));
     $pdf->Ln(15);
     //Seccion Horario
     $pdf->SetFont('Arial','B',12);

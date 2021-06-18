@@ -15,7 +15,9 @@
         public $tel;
         public $email;
         //Procedencia
+        public $idEscuela;
         public $procedencia;
+        public $idEstado;
         public $estado;
         public $promedio;
         public $opcion;
