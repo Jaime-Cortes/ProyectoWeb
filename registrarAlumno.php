@@ -31,6 +31,10 @@
 
 	session_start();
 	$_SESSION["alumno"]=$alumno;
+
+	$conexion = new Conexion;
+	$estado = $conexion->getEstado($alumno->estado);
+
 	echo "<style type='text/css'>";
 		 echo "@import url('formatocss/resultado.css');";
 	echo"</style>";
@@ -48,10 +52,14 @@
 			Colonia : $alumno->colonia<br/>
 			Codigo Postal : $alumno->cp<br/>
 			Numero de telefono : $alumno->tel<br/>
-			Correo Electronico : $alumno->email<br/>
-			Escuela de procedencia : $alumno->procedencia<br/>
-			Estado de procedencia : $alumno->estado<br/>
-			Promedio escolar en la medio superior : $alumno->promedio</br>
+			Correo Electronico : $alumno->email<br/>";
+			if($alumno->procedencia == "0"){
+				echo "Escuela de procedencia: $alumno->otra<br/>";
+			}else{
+				echo "Escuela de procedencia: CECyT $alumno->procedencia<br/>";
+			}
+			echo "Estado de procedencia : $estado<br/>";
+			echo "Promedio escolar en la medio superior : $alumno->promedio</br>
 			ESCOM fue tu : $alumno->opcion opcion<br/>";
 		echo"</div>";
 

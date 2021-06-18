@@ -3,7 +3,7 @@
     class Conexion {
         public $url = "localhost";
         public $user = "root";
-        public $psw = "";
+        public $psw = "n0m3l0";
         public $bd = "Tec_web";
         public $port = 3306;
         public $mysqli;
@@ -98,6 +98,17 @@
             $resul = $this->mysqli->query($consulta);
 		    $filas = mysqli_num_rows($resul);
             return $filas;
+        }
+
+        public function getEstado($idEstado){
+            $estado = "";
+            $consulta = "select estado from Estados where idEstado = $idEstado;";
+            if($result =  $this->mysqli->query($consulta)){
+                while ($row = mysqli_fetch_assoc($result)){
+                    $estado = $row['estado']; 
+                }
+            }
+            return $estado;
         }
     }
 ?>
