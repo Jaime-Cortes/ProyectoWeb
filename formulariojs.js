@@ -45,6 +45,8 @@ const selectores = {
 	escom: false
 }
 
+
+
 const ValidarForm = (e) => {
 	switch(e.target.name)
 
@@ -95,6 +97,55 @@ const ValidarForm = (e) => {
 	}
 }
 
+const ValidarFormOnSubmit = (input) => {
+	switch(input.name)
+
+	{
+		case "nombre":
+			ValidarCampos(expresiones.nombre, input, 'nombre');
+			
+			break;
+	
+			case "apeP":
+            ValidarCampos(expresiones.apeP, input, 'apeP');
+			break;
+			case "apeM":
+            ValidarCampos(expresiones.apeM, input, 'apeM');
+			break;
+			case "boleta":
+			ValidarCampos(expresiones.boleta, input, 'boleta');
+			break;
+			case "curp":
+			ValidarCampos(expresiones.curp, input, 'curp');
+			break;
+			case "calle":
+			ValidarCampos(expresiones.calle, input, 'calle');
+			break;
+			case "colonia":
+			ValidarCampos(expresiones.colonia, input, 'colonia');
+			break;
+			case "cp":
+			ValidarCampos(expresiones.cp, input, 'cp');
+			break;
+			case "telefono":
+			ValidarCampos(expresiones.tel, input, 'telefono');
+			
+			break;
+			case "correo":
+			ValidarCampos(expresiones.correo, input, 'correo');
+			break;
+			case "promedio":
+			ValidarCampos(expresiones.promedio, input, 'promedio');
+			break;
+		    case "fecha":
+			ValidarFecha(expresiones.fecha, input);
+			break;
+		    case "otra":
+			ValidarCampos(expresiones.otra, input,'otra');
+			break;
+			
+	}
+}
 
 
 
@@ -127,12 +178,8 @@ var ValidarFecha = (expresion, input) => {
 
 
 inputs.forEach((input) => {
-	
-	input.addEventListener('keyup', ValidarForm); //Validacion al soltar la tecla
-	
-	input.addEventListener('blur', ValidarForm);   // Validacion al dar clic en otro sitio
-	
-						   
+	input.addEventListener('keypress', ValidarForm); //Validacion al soltar la tecla
+	input.addEventListener('blur', ValidarForm);   // Validacion al dar clic en otro sitio			   
 });
 
 function validarOpc(){
@@ -160,9 +207,12 @@ function validarOpc(){
 
 function validarOpcE(){
 	var opcion = document.getElementById('procedencia');
+	console.log("Hoaaaaaaa validacion procedencia")
 	if(opcion.value == 'NS'){
 		selectores.estado=false;
+		console.log("Procedencia not selected");
 	}else{
+		console.log("Procedencia selected");
 	selectores.estado=true;
 	document.getElementById('form_mensaje').classList.remove('form_mensaje_activo');
 	}
@@ -201,7 +251,16 @@ formulario.addEventListener('reset', (e) =>{
 
 formulario.addEventListener('submit',(e) =>{
 	e.preventDefault();
-	
+
+	//En caso de que ya esten cargados
+	inputs.forEach((input) => {
+		console.log(input.name +"--" + input.value);
+		ValidarFormOnSubmit(input)		   
+	});
+	ValidarFecha(expresiones.fecha, document.getElementById("fecha"));
+	validarOpcO();
+	validarOpcE();
+	validarOpc();
 	//Validar campo de genero
 	var  sexo;
 		if(formulario.genero[0].checked == true || formulario.genero[1].checked == true ){
@@ -209,8 +268,6 @@ formulario.addEventListener('submit',(e) =>{
 		}else{
 		sexo = false;
 	}
-	
-	
 	
 	if(campos.nombre && campos.apeP && campos.apeM && campos.boleta && campos.curp && campos.calle && campos.colonia && campos.cp && campos.telefono && campos.correo  && sexo == true && campos.nacimiento && campos.promedio && selectores.escuela && campos.otra && selectores.estado && selectores.escom){ 
 	    alert("terminado");

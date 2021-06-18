@@ -20,14 +20,6 @@ echo "
 <meta charset='utf-8'>
 <title>.:Registro de alumnos:.</title>
 	<link rel='stylesheet' href='formatocss/estilo.css'>
-	<script language='JavaScript'>
-function pregunta(){
-    if (confirm('¿Estas seguro de enviar este formulario?')){
-       document.tuformulario.submit()
-    }
-}
-</script>
-	
 </head>
 	<body>
 
@@ -261,7 +253,7 @@ function pregunta(){
 				</p></div>
 			</div>
 		   <div class='form_All_enviar'>
-			<input type='submit' class='formulario_btnE'  onclick='pregunta()' value='Guardar'>
+			<input type='submit' class='formulario_btnE' value='Guardar'>
 			   </div>
 			
 			<div class='form_All_limpiar'>
