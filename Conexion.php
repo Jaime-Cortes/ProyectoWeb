@@ -47,6 +47,7 @@
                     $alumno->fechaAplicacion = $row['fecha'];
                     $alumno->idEstado = $row['idEstado'];
                     $alumno->idEscuela = $row['idEscuela'];
+                    $alumno->otra = $alumno->procedencia;
                 }
             }
             return $alumno;
