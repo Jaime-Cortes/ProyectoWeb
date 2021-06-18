@@ -166,7 +166,7 @@ echo "
 			<div class='form_Procedencia'>
 			<fieldset>
 			<legend><h3>Procedencia</h3></legend>
-			<label for='escuela' class='etiqueta'> Selecciona tu escuela de procedencia $alumno->idEscuela</label>
+			<label for='escuela' class='etiqueta'> Selecciona tu escuela de procedencia</label>
 			<select name='escuela' id='escuela' onChange='validarOpc()'>";
 				echo "<option value='1'".($alumno->idEscuela==1?"selected":"")."> CECyT 1 &quot;Gonzalo V&aacute;zquez Vela&quot;</option>";
 				echo "<option value='2'".($alumno->idEscuela==2?"selected":"")."> CECyT 2 &quot;Miguel Bernard Perales&quot;</option>";
@@ -186,13 +186,13 @@ echo "
 				echo "<option value='16'".($alumno->idEscuela==16?"selected":"")."> CECyT 16 &quot;Unidad Hidalgo&quot;</option>";
 				echo "<option value='17'".($alumno->idEscuela==17?"selected":"")."> CECyT 17 &quot;Unidad Guanajuato&quot;</option>";
 				echo "<option value='18'".($alumno->idEscuela==18?"selected":"")."> CET 1 &quot;Walter Cross Buchanan&quot;</option>";
-				echo "<option value='0'".($alumno->idEscuela>18?"selected":"")."> Otra</option>";
+				echo "<option value='0'".($alumno->idEscuela>18 || $alumno->idEscuela==0?"selected":"")."> Otra</option>";
 			echo "</select><br/>
 				<div class='form_All' id='form_otra'>
 			<!--<label for='otra' class='etiqueta'> Promedio:</label>-->
-				<div class='form_input_general_otra'>
-					<input type='text' name='otra' id='otra'  class='form_input_otra' placeholder='Otra' style='display: none;' value='$alumno->procedencia'/>
-					<i class='validacion_estado far fa-times-circle'></i>
+				<div class='form_input_general_otra'>";
+				echo "<input type='text' name='otra' id='otra'  class='form_input_otra' placeholder='Otra'  value='$alumno->otra'".($alumno->idEscuela>18 || $alumno->idEscuela==0?"style='display:;'":"style='display: none;'")."/>";
+				echo"<i class='validacion_estado far fa-times-circle'></i>
 					</div>
 					<p class='form_error'>La escuela no debe tener caracteres especiales </p>
 					</div>
@@ -235,9 +235,9 @@ echo "
 
 			<div class='form_All' id='form_promedio'>
 			<label for='promedio' class='etiqueta'> Promedio:</label>
-					<div class='form_input_general'>
-					<input type='text' name='promedio' id='promedio' class='form_input_prom' value='$alumno->promedio'>
-					<i class='validacion_estado_prom far fa-times-circle'></i>
+					<div class='form_input_general'>";
+				echo "<input type='text' name='promedio' id='promedio' class='form_input_prom' value='$alumno->promedio' >";
+			echo "<i class='validacion_estado_prom far fa-times-circle'></i>
 					</div>
 					<p class='form_error'>El promedio debe tener dos decimales </p>
 					</div>

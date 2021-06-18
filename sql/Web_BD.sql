@@ -153,6 +153,14 @@ declare horaExamen time;
 		update Alumnos set nombre=nombreA, apellidoPat=apellidoPatA, apellidoMat=apellidoMatA, email=emailA, 
 						nacimiento=nacimientoA, genero=generoA, curp=curpA, calle=calleA, colonia=coloniaA, cp=cpA, tel=telA, 
 						promedio=promedioA, opcionEscom=opcionEscomA where boleta=boletaA;
+        update alumno_estado set idEstado=idEstadoE where boleta = boletaA;               
+		if 	idEscuelaE = 0 then /*Opcion otro, se debe registrar la escuela*/
+				set idEscuelaE = (select ifnull(max(idEscuela), 0) from Escuelas) + 1;
+				insert into Escuelas (idEscuela, escuela) values (idEscuelaE, escuelaE);
+				update Alumno_Escuela set idEscuela = idEscuelaE where boleta=boletaA;
+			else /*Se registra el cecyt*/
+			update Alumno_Escuela set idEscuela=idEscuelaE where boleta=boletaA;
+			end if;   
     elseif opc = 4 then
 		Delete from Alumno_Escuela where boleta=boletaA;
         delete from alumno_estado where boleta=boletaA;
@@ -240,8 +248,8 @@ begin
 	declare i int;
     set i = 0;
     while i < 400 do
-		CALL ProcedureAlumno (1, cast(i as char(3)), 'nombre', 'paterno', 'materno', 'email', '2020-08-2013', 'M', 'curp', 
-		'calle', 'colonia', 'cp', 'telefono', '10', 'primera', 9, '', 5);
+		CALL ProcedureAlumno (1, cast(i as char(3)), 'nombre', 'paterno', 'materno', 'email@example.com', '2005-08-07', 'M', 'curp', 
+		'calle', 'colonia', '13000', '0123456789', '10', 'Primer', 9, '', 5);
     set i = i+1;
     end while;
 end**

@@ -1,8 +1,6 @@
 const formulario =document.getElementById('formulario');
 const inputs= document.querySelectorAll('#formulario input');
 
-
-
 const expresiones = {
 	nombre: /^[a-zA-ZÀ-ÿ\s]{1,30}$/, //Solo letras y espacios (pueden ir acentos) con longitud maxima de 30
 	apeP: /^[a-zA-ZÀ-ÿ\s]{1,15}$/, //Letras sin espacio con longitud maxima de 15
@@ -19,9 +17,6 @@ const expresiones = {
 	fecha: /^\d{4}\-\d{2}\-\d{2}$/
 	
 }
-
-
-
 
 const campos = {
 	nombre: false,
@@ -44,8 +39,6 @@ const selectores = {
 	estado: false,
 	escom: false
 }
-
-
 
 const ValidarForm = (e) => {
 	switch(e.target.name)
@@ -207,7 +200,6 @@ function validarOpc(){
 
 function validarOpcE(){
 	var opcion = document.getElementById('procedencia');
-	console.log("Hoaaaaaaa validacion procedencia")
 	if(opcion.value == 'NS'){
 		selectores.estado=false;
 		console.log("Procedencia not selected");

@@ -34,8 +34,12 @@
 	$alumno->idEstado = $alumno->estado;
 
 	session_start();
+	if(isset($_SESSION["alumno"])){
+		unset($_SESSION['alumno']);
+	}
 	$_SESSION["alumno"]=$alumno;
-
+	session_write_close();
+	
 	$conexion = new Conexion;
 	$estado = $conexion->getEstado($alumno->estado);
 
