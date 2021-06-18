@@ -39,10 +39,10 @@
 			echo  "<td><form action='editRA.php' method='get'>";
 					echo "<input type='text' value='".$alumnos[$i]->boleta."' name='boleta' hidden/>";
 					echo "<input type='text' value='true' name='Admin' hidden/>";
-					echo "<input type='submit' value='Editar' name='editar'/></form></td>";
+					echo "<input type='image'  value='Editar' name='editar' src='res/104668.png' width='40px'/></form></td>";
 			echo  "<td><form action='eliminar.php'>";
 					echo "<input type='text' value='".$alumnos[$i]->boleta."' name='boleta' hidden/>";
-					echo "<input type='submit' value='Eliminar'/></form></td>";
+					echo "<input type='image' src='res/eliminar.png' value='Eliminar' width='40px'/></form></td>";
 		}
 		echo "</table>";
 	echo "</section>";

@@ -41,37 +41,61 @@
 	echo "<style type='text/css'>";
 		 echo "@import url('formatocss/resultado.css');";
 	echo"</style>";
-		
-		echo"<div id='informacion'>";
-	    echo "<br><p class='title'>Hola $alumno->nombre, verifica que los datos que ingresaste sean correctos:</p><br>
-			Nombre(s) : $alumno->nombre <br/>
-			Apellido Paterno  : $alumno->paterno<br/>
-			Apellido Materno : $alumno->materno<br/>
-			Boleta : $alumno->boleta<br/>
-			Fecha de nacimiento : $alumno->nacimiento<br/>
-			Genero :  $alumno->genero<br/>
-			CURP : $alumno->curp<br/>
-			Calle : $alumno->calle<br/>
-			Colonia : $alumno->colonia<br/>
-			Codigo Postal : $alumno->cp<br/>
-			Numero de telefono : $alumno->tel<br/>
-			Correo Electronico : $alumno->email<br/>";
+		echo"<header>";
+			echo"<section id='esc_left'>";
+		    	echo"<center><img src='res/IPN.png' alt=''/></center>";
+			echo"</section>";
+			echo"<div>";
+			echo"<section id='nametitle'>";
+				echo"<p class='titles'>BIENVENIDO A NUESTRA ESCOMUNIDAD $alumno->nombre</p>";
+			echo"</section>";
+			echo"<section id='esc_right'>";
+				echo"<center><img src='logoESCOM2x.png' alt=''/></center>";
+			echo"</section>";
+			echo"</div>";
+		echo"</header>";
+		echo"<section id='contenido'>";
+			echo"<section id='contenido_1'>";
+				echo"<p></p>";
+			echo"</section>";
+			echo"<section id='contenido_2'>";
+				echo "<br><p class='title'>Verifica que los datos que ingresaste sean correctos:</p><br>
+				<b>Nombre(s) :</b> $alumno->nombre <br/>
+				<b>Apellido Paterno  :</b> $alumno->paterno<br/>
+				<b>Apellido Materno :</b> $alumno->materno<br/>
+				<b>Boleta :</b> $alumno->boleta<br/>
+				<b>Fecha de nacimiento :</b> $alumno->nacimiento<br/>
+				<b>Genero :</b>  $alumno->genero<br/>
+				<b>CURP :</b> $alumno->curp<br/>
+				<b>Calle :</b> $alumno->calle<br/>
+				<b>Colonia :</b> $alumno->colonia<br/>
+				<b>Codigo Postal :</b> $alumno->cp<br/>
+				<b>Numero de telefono :</b> $alumno->tel<br/>
+				<b>Correo Electronico :</b> $alumno->email<br/>";
 			if($alumno->procedencia == "0"){
-				echo "Escuela de procedencia: $alumno->otra<br/>";
+				echo "<b>Escuela de procedencia:</b> $alumno->otra<br/>";
 			}else{
-				echo "Escuela de procedencia: CECyT $alumno->procedencia<br/>";
+				echo "<b>Escuela de procedencia:</b> CECyT $alumno->procedencia<br/>";
 			}
-			echo "Estado de procedencia : $estado<br/>";
-			echo "Promedio escolar en la medio superior : $alumno->promedio</br>
-			ESCOM fue tu : $alumno->opcion opcion<br/>";
-		echo"</div>";
-
-		echo"<form  method='POST' action='registrarAlumno.php'>
-		<input type='submit' value='Aceptar' name='Aceptar' >
-		</form>
-		<form  method='get' action='editRA.php'>
-		<input type='submit' value='Editar'>
-		</form>";
+			echo "<b>Estado de procedencia :</b> $estado<br/>";
+			echo "<b>Promedio escolar en la medio superior :</b> $alumno->promedio</br>
+			<b>ESCOM fue tu :</b> $alumno->opcion opcion<br/>";
+			
+			echo"<section id='button_1'>";
+				echo"<form  method='POST' action='registrarAlumno.php'>
+					<input type='submit' value='Aceptar' name='Aceptar' class='button'>
+					</form>";
+			echo"</section>";
+			echo"<section id='button_2'>";
+				echo"<form  method='get' action='editRA.php'>
+				<input type='submit' value='Editar' class='button'>
+				</form>";;
+			echo"</section>";
+			echo"</section>";
+			echo"<section id='contenido_3'>";
+				echo"<p></p>";
+			echo"</section>";
+		echo"</section>";
 	  }
 
 ?>
