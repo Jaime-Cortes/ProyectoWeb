@@ -3,7 +3,7 @@
     class Conexion {
         public $url = "localhost";
         public $user = "root";
-        public $psw = "";
+        public $psw = "n0m3l0";
         public $bd = "Tec_web";
         public $port = 3306;
         public $mysqli;
@@ -22,6 +22,7 @@
 
         public function consultarAlumno($boleta){
             $alumno = new Alumno;
+            $alumno->boleta=0;
             $query = "Call procedureAlumno(2, '$boleta', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, '', 0)";
             if($result =  $this->mysqli->query($query)){
                 while ($row = mysqli_fetch_assoc($result)){

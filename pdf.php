@@ -3,7 +3,6 @@
     require('libs\fpdf.php');
     include('Conexion.php');
     //Se obtienen los datos de la base de datos
-    $boleta="0";
     if(isset($_POST['boleta'])){
         $boleta = $_POST["boleta"];
     }else{
@@ -12,6 +11,10 @@
     $conexion = new Conexion;
     $alumno = new Alumno();
     $alumno = $conexion->consultarAlumno($boleta);
+    if($alumno->boleta==0){
+        echo '<script>alert("El alumno no existe");</script>';
+        echo '<script>window.location.href="menuAdmin.php";</script>';
+    }else{
  
     //Se crea el pdf
     class PDF extends FPDF{
@@ -185,5 +188,5 @@
     // }else{
     //     echo "Error al enviar correo";    
     // }
-
+    }
 ?>

@@ -1,5 +1,13 @@
 <?php
     include('Conexion.php');
+	session_start();
+	if(!isset($_SESSION["admin"])){
+		header("location:index.html");
+	}else{
+		if(!$_SESSION["admin"]){
+			header("location:index.html");
+		}
+	}
 
     $conexion = new Conexion;
     $alumnos = $conexion->consultarTodosAlumnos();
@@ -15,7 +23,7 @@
 					echo"<nav id='main'>";
 					echo"<ul>";
 						echo"<li><a href='RegistroAlumno.html'>Registar alumno</a></li>";
-						echo"<li><a href='index.html'>Salir</a></li>";
+						echo"<li><a href='closeSession.php'>Salir</a></li>";
 					echo"</ul>";
 					echo"</nav>";
 			echo"</header>";

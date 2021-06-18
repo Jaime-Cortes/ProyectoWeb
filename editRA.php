@@ -13,6 +13,11 @@
 		$admin = false;
 	}
 
+	if($admin && $alumno->boleta==0){
+			echo '<script>alert("El alumno no existe");</script>';
+			echo '<script>window.location.href="menuAdmin.php";</script>';
+	}
+
 echo "
 <!doctype html>
 <html>

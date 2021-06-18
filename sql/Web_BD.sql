@@ -260,10 +260,4 @@ select * from alumno_estado;
 select distinct hora from Datos;
 select count(*) from datos;
 */
-
-select estado from Estados where idEstado = 1;
-select escuela from Escuelas where idEscuela = 1;
-   
-   CALL ProcedureAlumno (1, 0, 'nombre', 'paterno', 'materno', 'email', '2020-08-2013', 'M', 'curp', 
-		'calle', 'colonia', 'cp', 'telefono', '10', 'primera', 9, '', 5);
     

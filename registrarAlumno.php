@@ -5,8 +5,9 @@
 		$conexion = new Conexion;
 		$alumno = $_SESSION["alumno"];
 		$conexion->registrarAlumno($alumno);
-		echo "alumno registrado";
-		header("location:pdf.php?boleta=$alumno->boleta");
+		echo '<script>alert("Alumno registrado");</script>';
+        echo '<script>window.open("pdf.php?boleta='.$alumno->boleta.'","_blank");</script>';
+        echo '<script>window.location.href="index.html"</script>';
   	}else{
 	$alumno = new Alumno;
     $alumno->nombre = $_POST["nombre"];
