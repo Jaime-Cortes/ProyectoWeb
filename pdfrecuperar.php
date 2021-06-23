@@ -3,15 +3,15 @@
     require('libs\fpdf.php');
     include('Conexion.php');
     //Se obtienen los datos de la base de datos
-    if(isset($_POST['boleta'])){
-        $boleta = $_POST["boleta"];
+    if(isset($_POST['curp'])){
+        $curp = $_POST["curp"];
     }else{
-        $boleta = $_GET["boleta"];
+        $curp = $_GET["curp"];
     }
     $conexion = new Conexion;
     $alumno = new Alumno();
-    $alumno = $conexion->consultarAlumno($boleta);
-    if($alumno->boleta==0){
+    $alumno = $conexion->sendpdfforcurp($curp);
+    if($alumno->curp==0){
         echo '<script>alert("El alumno no existe");</script>';
         echo '<script>window.location.href="menuAdmin.php";</script>';
     }else{

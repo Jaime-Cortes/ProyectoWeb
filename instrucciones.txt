@@ -1,3 +1,3 @@
-Para la ejecución de nuestro proyecto se debe de acceder al archivo index.html donde se presenta en menu principal de cada una de las funciones solicitadas, las tablas para la base de datos se encuentrana en la carpeta sql.
+Para la ejecución de nuestro proyecto se debe de acceder al archivo index.html donde se presenta en menu principal de cada una de las funciones solicitadas, las tablas para la base de datos se encuentrana en la carpeta sql, ademas en el archivo Conexion.php debe de cambiar en el campo.
 
 Equipo 4.

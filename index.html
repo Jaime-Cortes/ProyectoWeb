@@ -43,21 +43,22 @@
 				<div id="miModal" class="modal">
 				  <div class="modal-contenido">
 					<a href="#"><p align="right"><b>X</b></p></a>
-					<p align="justify">Ingrese su número de boleta para reenviar su comprobante</p>
-					 <form action="pdf.php" method="get" target="blank">
-					<div class="form_All" id="form_boleta">
-					<label for="boleta" class="etiqueta"> N&uacute;mero de boleta: </label>
+					<p align="justify">Ingrese su C.U.R.P  para reenviar su comprobante</p>
+					 <form action="pdfrecuperar.php" method="post" target="blank">
+					<div class="form_ALL" id="form_curp">
+					<label for="curp" class="etiqueta"> CURP: </label>
 					<div class="form_input_general">
-					<input type="text" name="boleta" id="boleta" class="form_input" maxlength="10">
-					<i class="validacion_estado far fa-times-circle"></i>
+					<input type="text" name="curp" id="curp" class="form_input" maxlength="18">
+					<i class=" validacion_estado far fa-times-circle"></i>
+					</div>
+					<p class="form_error">El CURP debe tener 18 caracteres</p>
 					</div>
 					<input type="text" value="true" name="Admin" hidden/>
 					<input class="button" type="submit" value="Enviar" name="Enviar"/>
-					<p class="form_error">El n&uacute;mero de boleta debe empezar con PP o PE y debe tener 8 d&iacute;gitos depu&eacute;s o bien solo 10 d&iacute;gitos</p>
+					<p class="form_error">El CURP debe tener 18 caracteres</p>
+					</form>
 					</div>
-						 </form>
 				  </div>  
-				</div>
 			</section>
 
 		</section>

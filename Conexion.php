@@ -3,7 +3,7 @@
     class Conexion {
         public $url = "localhost";
         public $user = "root";
-        public $psw = "n0m3l0";
+        public $psw = "";
         public $bd = "Tec_web";
         public $port = 3306;
         public $mysqli;
@@ -96,6 +96,39 @@
             }
             return $Alumnos;
         }
+		
+		public function sendpdfforcurp($curp){
+            $alumno = new Alumno;
+            $alumno->curp=0;
+            $query = "Call procedureAlumno(6, '', '', '', '', '', '', '', '$curp', '', '', '', '', '', '', 0, '', 0)";
+            if($result =  $this->mysqli->query($query)){
+                while ($row = mysqli_fetch_assoc($result)){
+                    $alumno->boleta = $row['boleta'];  
+                    $alumno->nombre = $row['nombre'];
+                    $alumno->paterno = $row['apellidoPat'];
+                    $alumno->materno = $row['apellidoMat'];
+                    $alumno->email = $row['email'];
+                    $alumno->nacimiento = $row["nacimiento"];
+                    $alumno->genero = $row['genero'];
+                    $alumno->curp = $row['curp'];
+                    $alumno->calle = $row['calle'];
+                    $alumno->colonia = $row['colonia'];
+                    $alumno->cp = $row['cp'];
+                    $alumno->tel = $row['tel'];
+                    $alumno->promedio = $row['promedio'];
+                    $alumno->opcion = $row['opcionEscom'];
+                    $alumno->procedencia = $row['escuela'];
+                    $alumno->estado = $row['estado'];
+                    $alumno->laboratorio = $row['laboratorio'];
+                    $alumno->hora = $row['hora'];
+                    $alumno->fechaAplicacion = $row['fecha'];
+                    $alumno->idEstado = $row['idEstado'];
+                    $alumno->idEscuela = $row['idEscuela'];
+                    $alumno->otra = $alumno->procedencia;
+                }
+            }
+            return $alumno;
+        }
 
         public function validarAdmin($usuario, $contrasena){
             $consulta = "SELECT * FROM ADMIN WHERE usuario = '$usuario' and clave = '$contrasena'";
@@ -114,5 +147,6 @@
             }
             return $estado;
         }
-    }
+		
+	}
 ?>
