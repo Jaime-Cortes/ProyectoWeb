@@ -52,7 +52,7 @@
 			echo"</section>";
 			echo"<div>";
 			echo"<section id='nametitle'>";
-				echo"<p class='titles'>BIENVENIDO A NUESTRA ESCOMUNIDAD $alumno->nombre</p>";
+				echo"<p class='titles'>BIENVENID&#64; A NUESTRA ESCOMUNIDAD $alumno->nombre</p>";
 			echo"</section>";
 			echo"<section id='esc_right'>";
 				echo"<center><img src='logoESCOM2x.png' alt=''/></center>";
@@ -64,7 +64,7 @@
 				echo"<p></p>";
 			echo"</section>";
 			echo"<section id='contenido_2'>";
-				echo "<br><p class='title'>Verifica que los datos que ingresaste sean correctos:</p><br>
+				echo "<div><p class='title'>Verifica que los datos que ingresaste sean correctos:</p>
 				<b>Nombre(s) :</b> $alumno->nombre <br/>
 				<b>Apellido Paterno  :</b> $alumno->paterno<br/>
 				<b>Apellido Materno :</b> $alumno->materno<br/>
@@ -84,7 +84,7 @@
 			}
 			echo "<b>Estado de procedencia :</b> $estado<br/>";
 			echo "<b>Promedio escolar en la medio superior :</b> $alumno->promedio</br>
-			<b>ESCOM fue tu :</b> $alumno->opcion opcion<br/>";
+			<b>ESCOM fue tu :</b> $alumno->opcion opcion<br/></div>";
 			
 			echo"<section id='button_1'>";
 				echo"<form  method='POST' action='registrarAlumno.php'>

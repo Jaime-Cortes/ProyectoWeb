@@ -68,6 +68,7 @@ header {
 #nametitle{
 	width: 70%;
     float: left;
+	position: relative;
 	padding: 10px;
 	text-align: center;
 	background-color:#006699;
@@ -79,6 +80,27 @@ header {
 	font-family: "BungeeShade";
 	font-size: 50px;
 }
+
+.titles span{
+	position: absolute;
+	right: 0;
+	width: 0;
+	background: #006699;
+	border-left: 1px solid #FFFFFF;
+	animation: maquina 5s steps(19);
+}
+
+@keyframes maquina{
+	from{
+		width: 82%;
+		
+	}
+	to {
+		width: 17%;
+	}
+}
+
+
 
 #esc_right{
 	padding-top: 20px;

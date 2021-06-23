@@ -4,6 +4,11 @@
 	font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", Verdana, "sans-serif";
 }
 
+@font-face {
+    font-family: "BungeeShade";
+    src: url(' ../font/Bungee_Shade/BungeeShade-Regular.ttf');
+}
+
 header {
     width: 100%;
     height: 150px;
@@ -23,10 +28,16 @@ header {
 #nametitle{
 	width: 70%;
     float: left;
-	padding: 3% 0;
+	padding:  10px 0;
 	text-align: center;
 	background-color:#006699;
-	border-radius: 30px;
+	border-radius: 15px;
+	color: #fff;
+}
+
+.titles{
+	font-family: "BungeeShade";
+	font-size: 30px;
 }
 
 
@@ -63,6 +74,10 @@ header img{
 #contenido_2 {
     float: left;
     width: 40%;
+}
+
+#contenido_2 div{
+	padding-left: 15%;
 }
 
 #contenido_3 {
@@ -108,6 +123,71 @@ header img{
 
 .button{
 	transition:all 0.2s ease;
+}
+
+@media screen and (max-width: 1200px){
+	#nametitle{
+	width: 70%;
+    float: left;
+	padding:20px 0;
+}
+	
+	.titles{
+		font-family: "BungeeShade";
+		font-size: 22px;
+	}
+
+}
+
+@media screen and (max-width: 800px){
+	#esc_left{
+	padding-top: 10px 0;
+	width: 15%;
+    float: left;
+}
+
+#esc_left img{
+    width: 65%;
+    height: auto;
+}
+
+#nametitle{
+	width: 70%;
+    float: left;
+	padding:12px 0;
+}
+	
+	.titles{
+		font-family: "BungeeShade";
+		font-size: 15px;
+	}
+
+
+#esc_right{
+	padding-top: 20px;
+	width: 15%;
+    float: left;
+}
+	
+	#esc_right img{
+	width: 100%;
+    height: auto;
+}
+	#contenido_1 {
+    float: left;
+    width: 10%;
+}
+
+#contenido_2 {
+    float: left;
+    width: 80%;
+}
+
+#contenido_3 {
+    float: left;
+    width: 10%;
+}
+
 }
 
 
