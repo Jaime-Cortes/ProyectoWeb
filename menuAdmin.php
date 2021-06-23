@@ -28,7 +28,7 @@
 					echo"</nav>";
 			echo"</header>";
 	echo "<section id='vista_consultar'>";
-		echo "<form action='editRA.php' method='get'>";
+		echo "<form action='editRA.php' method='post'>";
 		echo "<input class='consult' type='text' name='boleta'/>";
 		echo "<input type='text' value='true' name='Admin' hidden/>";
 		echo "<input class='button' type='submit' value='Consultar' name='Consultar'/></form>";
@@ -44,7 +44,7 @@
 			echo $alumnos[$i]->materno."</td>";
 			echo "<td>".$alumnos[$i]->boleta."</td>";
 			echo "<td>".$alumnos[$i]->procedencia."</td>";
-			echo  "<td><form action='editRA.php' method='get'>";
+			echo  "<td><form action='editRA.php' method='post'>";
 					echo "<input type='text' value='".$alumnos[$i]->boleta."' name='boleta' hidden/>";
 					echo "<input type='text' value='true' name='Admin' hidden/>";
 					echo "<input type='image'  value='Editar' name='editar' src='res/104668.png' width='40px'/></form></td>";

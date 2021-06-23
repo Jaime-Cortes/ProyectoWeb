@@ -168,8 +168,6 @@ declare horaExamen time;
         delete from alumnos where boleta=boletaA;
     elseif opc = 5 then
 		select * from Datos;
-    elseif opc = 6 then
-	select * from Datos where curp=curpA;
     end if;
 END**
 delimiter ;
@@ -248,7 +246,7 @@ drop procedure if exists registrosPrueba;
 create procedure registrosPrueba()
 begin
 	declare i int;
-    set i = 1;
+    set i = 26;
     while i < 400 do
 		CALL ProcedureAlumno (1, cast(i as char(3)), 'nombre', 'paterno', 'materno', 'email@example.com', '2005-08-07', 'M', 'curp', 
 		'calle', 'colonia', '13000', '0123456789', '10', 'Primer', 9, '', 5);
@@ -270,4 +268,6 @@ select * from alumno_estado;
 select distinct hora from Datos;
 select count(*) from datos;
 */
-    
+
+CALL ProcedureAlumno (1, 25, 'nombre', 'paterno', 'materno', 'email@example.com', '2005-08-07', 'M', 'curp', 
+		'calle', 'colonia', '13000', '0123456789', '10', 'Primer', 9, '', 5);

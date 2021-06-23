@@ -2,8 +2,8 @@
 	include("Conexion.php");
 	$alumno;
 	$admin = false;
-	if(isset($_GET['Admin'])){
-		$boleta = $_GET["boleta"];
+	if(isset($_POST['Admin'])){
+		$boleta = $_POST["boleta"];
 		$conexion = new Conexion;
 		$alumno = $conexion->consultarAlumno($boleta);
 		$admin = true;
@@ -17,6 +17,20 @@
 			echo '<script>alert("El alumno no existe");</script>';
 			echo '<script>window.location.href="menuAdmin.php";</script>';
 	}
+
+
+	if(!$admin){
+		if(isset($_SESSION["isEditable"])){
+			if(!$_SESSION["isEditable"]){
+				echo '<script>window.location.href="index.html";</script>';
+			}
+		}else{
+			echo '<script>window.location.href="index.html";</script>';
+		}
+	}
+
+
+	
 
 echo "
 <!doctype html>

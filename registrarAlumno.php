@@ -5,6 +5,7 @@
 		$conexion = new Conexion;
 		$alumno = $_SESSION["alumno"];
 		$conexion->registrarAlumno($alumno);
+		$_SESSION["isEditable"] = false;
 		echo '<script>alert("Alumno registrado");</script>';
         echo '<script>window.open("pdf.php?boleta='.$alumno->boleta.'","_blank");</script>';
         echo '<script>window.location.href="index.html"</script>';
@@ -38,6 +39,7 @@
 		unset($_SESSION['alumno']);
 	}
 	$_SESSION["alumno"]=$alumno;
+	$_SESSION["isEditable"] = true;
 	session_write_close();
 	
 	$conexion = new Conexion;
