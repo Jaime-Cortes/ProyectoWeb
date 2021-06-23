@@ -168,6 +168,8 @@ declare horaExamen time;
         delete from alumnos where boleta=boletaA;
     elseif opc = 5 then
 		select * from Datos;
+    elseif opc = 6 then
+		select * from Datos where curp=curpA;
     end if;
 END**
 delimiter ;
